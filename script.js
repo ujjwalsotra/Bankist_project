@@ -29,3 +29,36 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+
+// SELECTING ELEMENTS
+
+console.log(document.documentElement);
+console.log(document.head);
+console.log(document.body);
+
+const header=document.querySelector('.header');
+const allSelections=document.querySelectorAll('.section');
+console.log(allSelections); 
+
+document.getElementById('section--1');
+const allButtons=document.getElementsByTagName('button');
+console.log(allButtons);
+
+console.log(document.getElementsByClassName('btn'));
+
+//Creating and inserting elements
+
+const message= document.createElement('div');
+message.classList.add('cookie-message');
+//message.textContent='We use cookies for improved and better experience';
+message.innerHTML= 'We use cookies for improved and better experience. <button class="btn btn--close-cookie">Got it!</button>';
+//header.prepend(message);  // Prepend basically as the first child of header element
+header.append(message);  // Last chile of the header element (element on which method is called)
+//header.append(message.cloneNode(true));// Now i can show the same message at top and end of the element
+
+// Delete elements
+
+document.querySelector('.btn--close-cookie').addEventListener('click',function(){
+  message.remove();
+})
