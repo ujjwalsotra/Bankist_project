@@ -62,3 +62,22 @@ header.append(message);  // Last chile of the header element (element on which m
 document.querySelector('.btn--close-cookie').addEventListener('click',function(){
   message.remove();
 })
+
+// Styles
+
+message.style.backgroundColor='#37383d';
+message.style.width='120%';
+message.style.height=Number.parseFloat(getComputedStyle(message).height,10)+30+'px';
+//document.documentElement.style.setProperty('--color-primary','orangered');
+
+// Attributes
+
+const logo=document.querySelector('.nav__logo');
+console.log(logo.src);
+
+logo.alt='Beautiful minimalist logo';// Setting the attributes value
+
+// Data Attributes
+console.log(logo.dataset.versionNumber); // We use data attributes quite a lot when we work with API and has to store data in datasets.
+
+
