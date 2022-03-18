@@ -94,3 +94,14 @@ btnScrollTo.addEventListener('click',function(e){
   section1.scrollIntoView({behavior: 'smooth'});
 });
 
+// Types of event and event handlers
+
+// An event is a type of signal that is genetared by the  ceratin DOM node.
+
+const h1=document.querySelector('h1');
+
+h1.addEventListener('mouseenter',function(e){ // Working on mouse enter event  , When we hover over 
+  alert('addEventListener jai mata di');
+
+   
+});
