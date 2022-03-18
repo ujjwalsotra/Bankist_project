@@ -81,3 +81,16 @@ logo.alt='Beautiful minimalist logo';// Setting the attributes value
 console.log(logo.dataset.versionNumber); // We use data attributes quite a lot when we work with API and has to store data in datasets.
 
 
+// IMPLEMENTING SMOOTH SCROLLING
+
+const btnScrollTo=document.querySelector('.btn--scroll-to');
+const section1=document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click',function(e){
+  const s1coords=section1.getBoundingClientRect();
+  console.log(s1coords);
+  console.log(e.target.getBoundingClientRect()); 
+  console.log('Current scroll (X/Y)',window.pageXOffset, window.pageYOffset);
+  section1.scrollIntoView({behavior: 'smooth'});
+});
+
