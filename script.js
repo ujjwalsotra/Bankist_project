@@ -73,8 +73,30 @@ document.querySelector('.nav__links').addEventListener('click',function(e){
 
 });
 
+//----------------------------------------
 
+// BUILDING TABBED COMPONENT
 
+const tabs=document.querySelectorAll('.operations__tab');
+const tabsContainer=document.querySelector('.operations__tab-container');
+const tabsContent=document.querySelectorAll('.operations__content');
+
+tabsContainer.addEventListener('click',function(e){
+  const clicked=e.target.closest('.operations__tab');
+
+  if(!clicked)// Gaurd clause
+  {
+    return;
+  }
+  // Removing the class for  both the tabs
+  tabs.forEach(t=>t.classList.remove('operations__tab--active'));// Clearing operation__tab--active class on all button
+  tabsContent.forEach(t=>t.classList.remove('operations__content--active'));
+  
+  // Activating content area
+  clicked.classList.add('operations__tab--active');// Adding operations__tabs--active to the clicked tab
+  document.querySelector(`.operations__content--${clicked.dataset.tab}`).classList.add('operations__content--active');
+
+});
 
 // SELECTING ELEMENTS
 //console.log(document.documentElement);
@@ -169,33 +191,36 @@ document.querySelector('.nav__links').addEventListener('click',function(e){
 
 // DOM Traversing :- We can select an element based on other element
 
-const h1=document.querySelector('h1');
+//const h1=document.querySelector('h1');
 
 // Going downwards: child
 
-console.log(h1.querySelectorAll('.highlight'));
-console.log(h1.childNodes);
-console.log(h1.children);
-h1.firstElementChild.style.color='white';
+//console.log(h1.querySelectorAll('.highlight'));
+//console.log(h1.childNodes);
+//console.log(h1.children);
+//h1.firstElementChild.style.color='white';
 
 // Going upwards: parents
 
-console.log(h1.parentNode);// direct parent;
-console.log(h1.parentElement);
+//console.log(h1.parentNode);// direct parent;
+//console.log(h1.parentElement);
 
-h1.closest('.header').style.background='var(--gradient-secondary)';
+//h1.closest('.header').style.background='var(--gradient-secondary)';
 
 // Going sideways
 
-console.log(h1.previousElementSibling);
-console.log(h1.nextElementSibling);
+//console.log(h1.previousElementSibling);
+//console.log(h1.nextElementSibling);
 
 //console.log(hq.previousSibling);
 
-console.log(h1.parentElement.children);
-[...h1.parentElement.children].forEach(function(el){
-  if(el!==h1)
-  {
-    el.style.transform='scale(0.5)';
-  }
-});
+//console.log(h1.parentElement.children);
+//[...h1.parentElement.children].forEach(function(el){
+//  if(el!==h1)
+//  {
+//    el.style.transform='scale(0.5)';
+//  }
+//});
+
+
+
