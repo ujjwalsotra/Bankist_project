@@ -1,12 +1,20 @@
 'use strict';
 
-///////////////////////////////////////
-// Modal window
-
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
+const btnScrollTo=document.querySelector('.btn--scroll-to');
+const section1=document.querySelector('#section--1');
+
+const tabs=document.querySelectorAll('.operations__tab');
+const tabsContainer=document.querySelector('.operations__tab-container');
+const tabsContent=document.querySelectorAll('.operations__content');
+const nav=document.querySelector('.nav');
+///////////////////////////////////////
+// Modal window
+
+
 
 const openModal = function () {
   modal.classList.remove('hidden');
@@ -31,8 +39,6 @@ document.addEventListener('keydown', function (e) {
 });
 //IMPLEMENTING SMOOTH SCROLLING
 
-const btnScrollTo=document.querySelector('.btn--scroll-to');
-const section1=document.querySelector('#section--1');
 
 btnScrollTo.addEventListener('click',function(e){
   const s1coords=section1.getBoundingClientRect();
@@ -77,9 +83,6 @@ document.querySelector('.nav__links').addEventListener('click',function(e){
 
 // BUILDING TABBED COMPONENT
 
-const tabs=document.querySelectorAll('.operations__tab');
-const tabsContainer=document.querySelector('.operations__tab-container');
-const tabsContent=document.querySelectorAll('.operations__content');
 
 tabsContainer.addEventListener('click',function(e){
   const clicked=e.target.closest('.operations__tab');
@@ -98,6 +101,27 @@ tabsContainer.addEventListener('click',function(e){
 
 });
 
+//-------------------------------
+// Hovering effect/ menu fade animation
+const handleHover=function(e,opacity)
+{
+  if(e.target.classList.contains('nav__link'))
+  {
+    const link=e.target;
+    const up=link.closest('.nav').querySelectorAll('.nav__link');
+    const logo=link.closest('.nav').querySelector('img');
+    up.forEach(el=>{
+      if(el!==link)
+      {
+        el.style.opacity=this;
+      }
+    });
+    logo.style.opacity=this;
+  }
+};
+nav.addEventListener('mouseover',handleHover.bind(0.35));
+
+nav.addEventListener('mouseout',handleHover.bind(1));
 // SELECTING ELEMENTS
 //console.log(document.documentElement);
 //console.log(document.head);
