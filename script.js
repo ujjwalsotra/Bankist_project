@@ -122,6 +122,26 @@ const handleHover=function(e,opacity)
 nav.addEventListener('mouseover',handleHover.bind(0.35));
 
 nav.addEventListener('mouseout',handleHover.bind(1));
+
+//------------------------
+
+// Implementing sticky navigation
+
+const initialcord=section1.getBoundingClientRect();
+window.addEventListener('scroll',function(){
+  console.log(window.scrollY);
+  if(window.scrollY > initialcord.top)
+  {
+    nav.classList.add('sticky');
+  }
+  else
+  {
+    nav.classList.remove('sticky');
+  }
+});
+
+
+
 // SELECTING ELEMENTS
 //console.log(document.documentElement);
 //console.log(document.head);
