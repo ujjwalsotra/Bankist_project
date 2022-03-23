@@ -223,6 +223,48 @@ imgTargets.forEach(img=>imgObserever.observe(img));
 //--------------------
 
 
+// SLIDER COMPONENT
+
+const slides=document.querySelectorAll('.slide');
+let curSlide=0;
+const maxSlide=slides.length-1;
+const btnLeft=document.querySelector('.slider__btn--left');
+const btnRight=document.querySelector('.slider__btn--right');
+//const slider=document.querySelector('.slider');
+//slider.style.overflow='visible';
+
+const goToSlide=function(slide){
+  slides.forEach((s,index)=>s.style.transform=`translate(${100*(index-slide)}%)`);
+}
+
+  goToSlide(0);
+
+btnRight.addEventListener('click',function(){
+  if(curSlide==maxSlide)
+  {
+    curSlide=0;
+  }
+  else
+  {
+    curSlide++;
+  }
+  goToSlide(curSlide);
+  
+});
+
+btnLeft.addEventListener('click',function(){
+  if(curSlide===0)
+  {
+    curSlide=maxSlide;
+  }
+  else
+  {
+    curSlide--;
+  }
+  goToSlide(curSlide);
+});
+//--------------------------
+
 // SELECTING ELEMENTS
 //console.log(document.documentElement);
 //console.log(document.head);
